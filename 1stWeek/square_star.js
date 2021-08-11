@@ -3,11 +3,32 @@
 //[제한조건]
 //  n과 m은 각각 1000 이하인 자연수입니다.
 
-const n=document.getElementById('n').value;
-const m=document.getElementById('m').value;
-const draw=document.getElementById('draw');
-const res=document.getElementById('res');
-draw.onclick=()=>{
-    res.value="*"
-}
+const myDraw=document.getElementById('myDraw');
+const other1=document.getElementById('other1');
 
+//내풀이
+myDraw.addEventListener('click',()=>{
+    let res='';
+    let n=document.getElementById('n').value;
+    let m=document.getElementById('m').value;
+    for (let i = 0; i < m; i++) {
+    for (let j = 0; j <n; j++) {
+        res+='*'
+    }
+    (i<m-1)&&(res+='\n')
+    }
+    alert(res)
+})
+
+
+//다른사람풀이
+other1.addEventListener('click',()=>{
+    let res2='';
+    let n=document.getElementById('n').value;
+    let m=document.getElementById('m').value;
+    let num=parseInt(n)
+    for (let i = 0; i < m; i++) {
+        res2+='*'.repeat(num)+'\n'
+    }
+    alert(res2)
+})
