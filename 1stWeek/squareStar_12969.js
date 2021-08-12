@@ -17,7 +17,7 @@ myDraw.addEventListener('click',()=>{
     }
     (i<m-1)&&(res+='\n')
     }
-    alert(res)
+    console.log(res)
 })
 
 
@@ -30,5 +30,5 @@ other1.addEventListener('click',()=>{
     for (let i = 0; i < m; i++) {
         res2+='*'.repeat(num)+'\n'
     }
-    alert(res2)
+    console.log(res2)
 })
