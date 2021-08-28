@@ -39,6 +39,6 @@ function makeRandomInt(){
 function printArray(arr,elementClassName){
     var eArr = arr[Symbol.iterator]();   
     for(let l of eArr){
-       document.getElementsByClassName(elementClassName)[0].innerHTML+=`<div>${l}<div>`
+       document.getElementsByClassName(elementClassName)[0].innerHTML=`<div>${l}<div>`
     }
 }
