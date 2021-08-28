@@ -5,12 +5,30 @@
 
 const myDraw=document.getElementById('myDraw');
 const other1=document.getElementById('other1');
+const n=Number(document.getElementById('n').value);
+const m=Number(document.getElementById('m').value);
+
 
 //내풀이
 myDraw.addEventListener('click',()=>{
+    //빈칸이 있을 시 alert 후 빈 칸에 focus
+    if(n==0||m==0){
+        alert('n과 m 모두 입력하세요.')
+        n==0&&document.getElementById('n').focus();
+        m==0&&m!=0&&document.getElementById('m').focus();
+        return;
+    }
+
+     //n과 m의 범위
+     if(n!=0&&n>1000||!Number.isInteger(n)){
+        alert("n은 1000 이하 자연수여야 합니다.")
+         return;}
+     if(m!=0&&m>1000||!Number.isInteger(m)){
+        alert("n은 1000 이하 자연수여야 합니다.")
+         return;}
+     
     let res='';
-    let n=document.getElementById('n').value;
-    let m=document.getElementById('m').value;
+    
     for (let i = 0; i < m; i++) {
     for (let j = 0; j <n; j++) {
         res+='*'

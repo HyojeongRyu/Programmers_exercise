@@ -10,7 +10,23 @@ const other=document.getElementById('other')
 
 myRes.addEventListener('click',()=>{
     n=returnValue('n','x')[0];
-    x=returnValue('n','x')[1];
+    x=returnValue('n','x')[1];   
+    
+    //빈칸이 있을 시 alert 후 빈 칸에 focus
+    if(x==0||n==0){
+       alert('x와 n 모두 입력하세요');
+       n==0&&document.getElementById('n').focus();
+       x==0&&n!=0&&document.getElementById('x').focus();
+       return
+}
+    
+    //x와 n의 범위
+    if(x<-1000000||x>1000000){
+       alert("x는 -10000000 이상, 10000000 이하인 정수여야 합니다.")
+        return;}
+    if(n>100){
+       alert("n은 1000 이하인 자연수입니다.")
+        return;}
     
     let res=[];
     for (let i = 0; i < n; i++) {      
@@ -37,5 +53,6 @@ const returnValue=(n,x)=>{
     const nNum=Number(document.getElementById(n).value)
     const xNum=Number(document.getElementById(x).value)
     const num=new Array(nNum,xNum);
+    console.log(num)
     return num
 }
