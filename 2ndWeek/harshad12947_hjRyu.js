@@ -12,7 +12,7 @@ btn.addEventListener('click',()=>{
     for(let i=0; i<length; i++){
         sum+=Number(x[i])
     }
-    const res=Number.isInteger(sum/x)
+    const res=Number.isInteger(x/sum)
     document.getElementById('result').innerHTML=`<div>${res}<div>`  
 })
 
