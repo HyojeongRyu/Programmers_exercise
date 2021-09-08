@@ -5,12 +5,11 @@
 //  x는 -10000000 이상, 10000000 이하인 정수입니다.
 //  n은 1000 이하인 자연수입니다.
 
-const myRes=document.getElementById('myRes')
-const other=document.getElementById('other')
+const btn=document.getElementById('btn')
 
-myRes.addEventListener('click',()=>{
-    n=returnValue('n','x')[0];
-    x=returnValue('n','x')[1];   
+btn.addEventListener('click',function solution(){
+    n=returnValue('n');
+    x=returnValue('x');
     
     //빈칸이 있을 시 alert 후 빈 칸에 focus
     if(x==0||n==0){
@@ -19,40 +18,24 @@ myRes.addEventListener('click',()=>{
        x==0&&n!=0&&document.getElementById('x').focus();
        return
 }
-    
     //x와 n의 범위
     if(x<-1000000||x>1000000){
        alert("x는 -10000000 이상, 10000000 이하인 정수여야 합니다.")
+       x==0&&n!=0&&document.getElementById('x').focus();
         return;}
     if(n>100){
        alert("n은 1000 이하인 자연수입니다.")
+       n==0&&document.getElementById('n').focus();
         return;}
-    
-    let res=[];
-    for (let i = 0; i < n; i++) {      
-        res.push(x)
-        x+=n
+    //결과를 담는 리스트 return
+    let list=[];
+    for (let i = 1; i < n+1; i++) {      
+        list.push(x*i)
     }
-    console.log(res);
+    console.log(list)
 })
 
-other.addEventListener('click',()=>{
-    n=returnValue('n','x')[0];
-    x=returnValue('n','x')[1];
-   
-    let res=[];
-    cnt=1;
-    while(cnt<=n){
-        res.push(x*cnt)
-        cnt++
-    }
-    console.log(res);
-})
-
-const returnValue=(n,x)=>{
-    const nNum=Number(document.getElementById(n).value)
-    const xNum=Number(document.getElementById(x).value)
-    const num=new Array(nNum,xNum);
-    console.log(num)
+const returnValue=(id)=>{
+    const num=Number(document.getElementById(id).value)
     return num
 }
