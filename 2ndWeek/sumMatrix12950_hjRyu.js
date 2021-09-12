@@ -9,12 +9,18 @@ const btn = document.getElementsByClassName('btn')
 btn[0].addEventListener('click',()=>{
     const row= getNumByID('row')
     const col= getNumByID('col')
+    //제한조건
     if(row,col<=0||row,col>500){alert('1~499 사이의 수를 입력해주세요'); return;}
+    //예외처리: 빈칸이 있을때
+    if(row==0){alert('행의 크기를 입력해주세요'); document.getElementById('row').focus();return;}
+    if(row!=0&&col==0){alert('열의 크기를 입력해주세요'); document.getElementById('col').focus(); return;}
+    
     const firstArray=makeArray(row,col);
     const secondArray=makeArray(row,col);
-    const resArray=new Array;
+   
     printArray(firstArray,'1stArray')
     printArray(secondArray,'2ndArray')
+    const resArray=new Array;
     for (let i = 0; i < row; i++) {
         let temp=new Array;
         for(let j=0; j<col; j++){
@@ -23,7 +29,6 @@ btn[0].addEventListener('click',()=>{
         resArray.push(temp)
     }
     printArray(resArray,'resArray')
-
 })
 
 //랜덤숫자로 [n][n]크기 행렬 생성

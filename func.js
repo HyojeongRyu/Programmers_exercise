@@ -1,4 +1,4 @@
-export {getNumByID,printRes}
+export {getNumByID,printRes, isEven}
 function getNumByID(id){
     var res= Number(document.getElementById(id).value);
     return res;
@@ -10,5 +10,12 @@ function printRes(content,elementId){
     //     content.replace(/\n/gi, "<br>")
     //     console.log(content)
     // }
-    document.getElementById(`${elementId}`).innerHTML=`<div>${content}<div>` 
-   }
+    //정규표현식
+
+    document.getElementById(elementId).innerHTML=`<div>${content}<div>` 
+}
+function isEven(x){
+    var res;
+    x%2==0?res=true:res=false
+    return res;
+}

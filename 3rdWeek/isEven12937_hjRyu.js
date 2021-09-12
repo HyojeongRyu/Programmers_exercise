@@ -4,23 +4,14 @@
 //제한 조건
 //num은 int 범위의 정수입니다.
 //0은 짝수입니다.
+
+import { printRes, getNumByID, isEven } from "../func.js"
 const btn = document.getElementById("btn")
 
 btn.addEventListener('click',()=>{
-    const x = Number(document.getElementById("x").value)
-    if(Number.isInteger(x)){alert('정수를 입력해주세요'); return;}
-    const res=document.getElementById("result")
-    if(x>2147483647||x<–2147483648){
-        ""
-    }
-    if(x%2==0){
-        res.innerHTML=`<div>It's even.</div>`        
-    }
-    if (x%2>0) {
-        
-    } else {
-        
-    }{
-        res.innerHTML=`<div>It's odd.</div>`        
-    }
+    const x = getNumByID('x')
+    if(!Number.isInteger(x)){alert('정수를 입력해주세요'); return;}
+    isEven(x)?printRes(`It's even`,'result'):printRes(`It's odd`,'result')
 })
+
+

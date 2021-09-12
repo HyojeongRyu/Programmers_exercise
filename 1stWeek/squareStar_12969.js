@@ -26,7 +26,7 @@ myDraw.addEventListener('click',()=>{
         for(let j=0; j<n; j++){
         square+='*'
     }
-    square+='\n'
+    square+='<br>'
     }
     console.log(square)
     printRes(square,'res')
