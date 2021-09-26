@@ -1,4 +1,4 @@
-import {getNumByID, makeArray,  printRes,searchMin} from '../func.js'
+import {getNumByID, makeArray,  printRes} from '../func.js'
 
 
 document.getElementById('btn').addEventListener('click',()=>{
@@ -18,13 +18,13 @@ document.getElementById('btn').addEventListener('click',()=>{
     // console.log("정렬된 배열: ", arr)
     // printRes(bRes,'bubble')
 
-    //selection sort
-    const sSort = select(arr,0);
-    printRes(sSort,'select')
+    // //selection sort
+    // const sSort = select(arr,0);
+    // printRes(sSort,'select')
 
     //insert sort
-    // const iSort= check(arr,1);
-    // printRes(iSort,'insert')
+    const iSort= insert(arr);
+    printRes(iSort,'insert')
 })
     
 const bubble= arr=>{
@@ -43,6 +43,7 @@ const bubble= arr=>{
     return arr;
 }
 
+//p와 n끼리 자리를 바꾸는 함수
 const swap = (arr,p,n)=>{
     //포인터?  
     // let resArr=arr
@@ -57,27 +58,44 @@ const swap = (arr,p,n)=>{
     return resArr;
 }
 
-const select= (arr,space)=>{
-    // let res=new Array;
-    let idx=searchMin(arr)
-    swap(arr,idx,space)
-    space++
-    space<=arr.length&&select(arr,space)
+//arr[0] ~ arr[end]까지의 최소값을 찾아 인덱스를 반환
+function searchMin(arr,end){
+    let min=arr[0]
+    let mIdx;
+    for (let i = 1; i < end+1; i++) {
+        console.log(arr.indexOf(min))
+        if(arr[i]<min){
+            min=arr[i];
+        }
+    }
+    mIdx=arr.indexOf(min)
+    return mIdx;
+}
+
+const select= (arr)=>{
+    let idx=arr.length-1
+    while(idx!==0){
+        let mIdx=searchMin(arr,idx)
+        swap(arr,idx,mIdx)
+        idx--
+    }
     return arr;
 }
 
-// const insert=arr=>{
-    
-// }
-
-// const check = (arr,idx)=>{
-//     const l=arr.length
-//     if(arr[idx]<arr[idx-1]){
-//         let res=swap(arr,idx-1);
-//         check(res,idx)}
-//     else{idx++; check(arr,idx)}
-//     if(l<idx){console.log(arr); return arr;}
-// } 
-
+const insert=arr=>{
+    for (let i = 0; i < arr.length; i++) {
+        let n=arr[i]
+        for (let j = 0; j < arr.length; j++) {
+            if(n>=arr[j]){
+                let temp=arr[j];
+                arr[j]=arr[i]
+                arr[i]=temp;
+               
+               
+            }
+    }
+}
+return arr;
+}
 
 
