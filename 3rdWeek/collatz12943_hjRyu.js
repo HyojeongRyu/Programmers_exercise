@@ -18,6 +18,7 @@ function collatz(x){
     let count=0
     let res;
     let temp;
+    //while을 500번 돈다
     while(x!=1&&count<500){
         if(isEven(x)){
             temp=x/2
