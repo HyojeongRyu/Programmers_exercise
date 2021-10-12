@@ -22,9 +22,13 @@ document.getElementById('btn').addEventListener('click',()=>{
     // const sSort = select(arr,0);
     // printRes(sSort,'select')
 
-    //insert sort
-    const iSort= insert(arr);
-    printRes(iSort,'insert')
+    // //insert sort
+    // const iSort= insert(arr);
+    // printRes(iSort,'insert')
+
+    //quick sort
+    const qSort = quick(arr);
+    printRes(qSort,'quick')
 })
     
 const bubble= arr=>{
@@ -72,6 +76,7 @@ function searchMin(arr,end){
     return mIdx;
 }
 
+//선택정렬
 const select= (arr)=>{
     let idx=arr.length-1
     while(idx!==0){
@@ -82,20 +87,50 @@ const select= (arr)=>{
     return arr;
 }
 
+//삽입정렬
 const insert=arr=>{
-    for (let i = 0; i < arr.length; i++) {
-        let n=arr[i]
-        for (let j = 0; j < arr.length; j++) {
-            if(n>=arr[j]){
-                let temp=arr[j];
-                arr[j]=arr[i]
-                arr[i]=temp;
-               
-               
-            }
+    for (let i = 1; i < arr.length; i++) {
+        if(arr[i]>arr[i-1]){
+            let j=i;
+            while(arr[j]>arr[j-1]){swap(arr,j, j-1); j--}
+        }
     }
+    return arr;
 }
-return arr;
+
+//퀵정렬
+const quick=arr=>{
+    if(arr.length<2){return arr}
+    let start=0;
+        let end=arr.length-1;
+        let pivot=parseInt(arr.length/2);
+    while(start<end){
+        while(arr[start]>arr[pivot]){
+            start++
+        }
+        while(arr[end]<arr[pivot]){
+            end--
+        }
+        if(arr[start]<arr[pivot]&&arr[end]>arr[pivot]){
+            swap(arr,start,end)
+        }
+        start++
+        end--
+    }
+    let smaller=new Array;
+    let bigger=new Array;
+    let reArr=new Array;
+    for (let i = 0; i < arr.length; i++) {
+        i<start&&bigger.push(arr[i])
+        i>=start&&smaller.push(arr[i])
+    }
+    // reArr.push(smaller)
+    // reArr.push(bigger)
+    // reArr.forEach(element => {
+    //     if(element.length==1){console.log(element); return}
+    //     quick(element)
+    // });
+    return[quick(smaller),quick(bigger)]
 }
 
 
