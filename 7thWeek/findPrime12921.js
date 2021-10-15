@@ -14,22 +14,39 @@
 // }
 
 //에라토스테네스 체
-
 var solution= function(n){
     var isPrime=new Array
     var checkPrime=0;
-    for(let i=0; i<n; i++){
-        isPrime.push(true)
+    for(let i=2; i<n+1; i++){
+        isPrime[i]=true
     }
-    console.log(isPrime)
-    for(let i=1; i*i<=n; i++){
-        if(isPrime[i]==true){console.log('checkPrime');checkPrime++}
+
+    for(let i=2; i<=n; i++){
+        if(isPrime[i]==true){checkPrime++}
         for(let j=1; i*j<=n; j+=1){
-            isPrime[i*j-1]=false;
-            console.log(isPrime[i*j-1])
-            console.log(isPrime)
+            isPrime[i*j]=false;
         }
     }
+    return checkPrime;
+}
+
+//에라토스테네스 체: 제곱근까지만 구하기
+var solution= function(n){
+    var isPrime=new Array
+    var checkPrime=0;
+    for(let i=2; i<n+1; i++){
+        isPrime[i]=true
+    }
+    for(let i=2; i*i<=n; i++){
+        for(let j=2; i*j<=n; j+=1){
+            isPrime[i*j]=false;
+        }
+    }
+    //두번째 for문 시간복잡도 
+    //에라토스테네스 체 시간복잡도
+    isPrime.forEach(element => {
+        element==true&&checkPrime++;
+    });
     return checkPrime;
 }
 
