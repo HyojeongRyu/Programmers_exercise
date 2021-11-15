@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/10thWeek/dartGame17682.js"
+            "program": "${workspaceFolder}/12ndWeek/minSquare86491.js"
         }
     ]
 }
