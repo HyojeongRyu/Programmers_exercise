@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/12ndWeek/minSquare86491.js"
+            "program": "${workspaceFolder}/13rdWeek/budget12982.js"
         }
     ]
 }
