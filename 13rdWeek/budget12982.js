@@ -1,26 +1,15 @@
-// function solution(n) {
-//     const trit=[];
-//     while(n!=0){
-//         trit.push(n%3)
-//         n=Math.floor(n/3)
-//     }
-//     trit.reverse();
-//     let answer=0;
-//     trit.map((x,index)=>{
-//         answer+=x*Math.pow(3,index)
-//     })
-//     return answer
-// }
-
-//reduce함수
-function solution(n) {
-    const trit=[];
-    while(n!=0){
-        trit.push(n%3)
-        n=Math.floor(n/3)
+function solution(d, budget) {
+    let count=0;
+    d.sort((a,b)=>a-b);
+    var sum=0;
+    for (let i = 0; i < d.length; i++) {
+        sum+=d[i];
+        if(sum>budget)break;
+        count++
     }
-    return trit.reverse().reduce((acc,cur,idx)=>
-        acc+cur*Math.pow(3,idx)
-    ); 
+    return count;
 }
-console.log(solution(45))
+
+const d=[2,2,3,3]
+const budget=9
+console.log(solution(d,budget))

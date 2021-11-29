@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/13rdWeek/budget12982.js"
+            "program": "${workspaceFolder}/14thWeek/phoneKeMon1845.js"
         }
     ]
 }
