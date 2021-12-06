@@ -4,8 +4,20 @@
 //스테이지의 번호가 담겨있는 배열을 return
 
 function solution(N, stages) {
-    
-    
+    var rate=[]
+    for (let i = 1; i < N+1; i++) {
+        var challenger=0;
+        var fail=0;
+        stages.forEach(element => {
+            if(element>=i){
+                challenger++
+                if(element==i){fail++}
+            }
+        });
+        rate.push({stage:i,rate:fail/challenger})
+    }
+    rate.sort((a,b)=>b.rate-a.rate)
+    return rate.map(x=>x.stage)
 }
 
 const N=5;
