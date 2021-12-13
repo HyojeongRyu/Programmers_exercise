@@ -10,8 +10,8 @@ function solution(n) {
     }
     console.log(d)
     let answer;
-   answer=d.reduce((prev,cur)=>{
-       return prev+cur;
+    answer=d.reduce((prev,cur)=>{
+        return prev+cur;
    })
    console.log(answer)
     return answer;
