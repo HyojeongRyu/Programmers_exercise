@@ -52,7 +52,16 @@ function solution(n, arr1, arr2) {
 }
 
 //비트연산자
-var solution=(n,a,b)=>a.map((a,i)=>(a|b[i]).toString(2).padStart(n,0).replace(/0/g,' ').replace(/1/g,'#'))
+var solution=(n,a,b)=>
+a.map((a,i)=>(a|b[i])
+//이진수 변경
+.toString(2)
+//빈칸 0으로 채우기
+.padStart(n,0)
+//0 공백으로 replace
+.replace(/0/g,' ')
+//1 #으로 replace
+.replace(/1/g,'#'))
 
 //실행
 var n=5;

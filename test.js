@@ -1,7 +1,2 @@
-let a=1;
-let b=2;
-[a,b]=[b,a]
-
-console.log(a)
-console.log(b)
-// console.log(c)
+var temp= [9]|[30]
+console.log(temp)
