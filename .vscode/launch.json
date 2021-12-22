@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/17thWeek/pushKeypad67256.js"
+            "program": "${workspaceFolder}/18thWeek/newId72410.js"
         }
     ]
 }
