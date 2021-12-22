@@ -10,8 +10,63 @@
 
 
 function solution(numbers, hand) {
-    var answer = '';
-    return answer;
+    var result=[]
+    var left
+    var right
+    numbers.forEach((h,i) => {
+        if(h==1||h==4||h==7) {
+            result.push('L')
+            left=h
+        }
+        else if(h==3||h==6||h==9) {
+            result.push('R')
+            right=h
+        }
+        else{
+            if(h==0){h=11;}
+            //손이 *이나 #에 가있는데 2,5,8,0 중 하나 눌러야할때
+            if(!result){
+                if(hand=='right'){
+                    result.push('R')
+                    right=h
+                }
+                if(hand=='left'){
+                    result.push('L')
+                    right=h
+                }
+            }
+
+            //아직 첫 시작에서 움직이지 않았을때
+            if(!left){left=10}
+            if(!right){right=12}
+
+            //Math.floor(1/3)!=Math.floor(-1/3)
+            //parseInt .999999 -> round()
+            var distanceL=Math.floor(Math.abs(h-left)/3)+Math.floor(Math.abs(h-left)%3)
+            var distanceR=Math.floor(Math.abs(h-right)/3)+Math.floor(Math.abs(h-right)%3)
+
+            if(distanceL>distanceR){
+                result.push('R')
+                right=h;
+            }
+            else if(distanceR>distanceL){
+                result.push('L')
+                left=h;
+            }
+            else{
+                if(hand=='right'){
+                    result.push('R')
+                    right=h;
+                }
+                if(hand=='left'){
+                    result.push('L')
+                    left=h;
+                } 
+            }
+
+        }
+    });
+    return result.join('')
 }
 
-console.log(solution([1,3,4,5,8,2,1,4,5,9,5]))
+console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],'right'))
