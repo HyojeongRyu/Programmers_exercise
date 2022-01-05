@@ -1,18 +1,22 @@
 function solution(s) {
-    var table=[
-        {'0':'zero'},
-        {'1':'one'},
-        {'2':'two'},
-        {'3':'three'},
-        {'4':'four'},
-        {'5':'five'},
-        {'6':'six'},
-        {'7':'seven'},
-        {'8':'eight'},
-        {'9':'nine'}
-    ]
+    var table=['zero','one','two','three','four','five','six','seven','eight','nine']
+    table.forEach((num,idx)=>{
+        return s=s.replace(new RegExp(num,"g"),idx)
+    })
+    return s*1
 }
 
-vars="one4seveneight"
-table.map()
+// function solution(s) {
+//     let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+//     var answer = s;
+
+//     for(let i=0; i< numbers.length; i++) {
+//         let arr = answer.split(numbers[i]);
+//         answer = arr.join(i);
+//     }
+
+//     return Number(answer);
+// }
+
+var s="one4seveneight"
 console.log(solution(s))

@@ -18,9 +18,14 @@ function solution(id){
         .replace(/^\.|\.$/gm,'')
     //fifthStage||'a';
     if(!fifthStage){fifthStage='a'}
-    if(fifthStage.length<=2){return fifthStage.padEnd(3,fifthStage.match(/.$/gm)[0])}
     
+    if(fifthStage.length>=16){
+        fifthStage=fifthStage.substr(0,15)
+        fifthStage=fifthStage.match(/.$/)&&fifthStage.replace(/\.$/,'')
+    }
+    if(fifthStage.length<=2){fifthStage= fifthStage.padEnd(3,fifthStage.match(/.$/gm)[0])}
+    return fifthStage
 }
 
-var id=	"."
+var id=	"...!@BaT#*..y.abcdefghijklm"
 console.log(solution(id))
