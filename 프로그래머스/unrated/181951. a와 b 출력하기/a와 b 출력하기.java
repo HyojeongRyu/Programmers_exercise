@@ -6,9 +6,7 @@ public class Solution {
         int a = sc.nextInt();
         int b = sc.nextInt();
 
-        System.out.print("a = ");
-        System.out.println(a);
-        System.out.print("b = ");
-        System.out.println(b);
+        System.out.println("a = "+a);
+        System.out.println("b = "+b);
     }
 }
