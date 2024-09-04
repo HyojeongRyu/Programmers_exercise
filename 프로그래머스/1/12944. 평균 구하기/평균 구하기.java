@@ -6,4 +6,5 @@ class Solution {
        }
         return sum/arr.length;
     }
+    //return Arrays.stream(array).average().orElse(0);
 }
