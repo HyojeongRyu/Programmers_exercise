@@ -1,12 +1,15 @@
 class Solution {
     public int solution(int n) {
-        int answer = 0;
-        for(int i=1; i<=n/2; i++){
-            if(n%i==0){
-                answer+=i;
+        int result = 0;
+        
+        if(n==0) return 0;
+        
+        for(int i=1; i<= n/2; i++){
+            if(n % i == 0){
+                result += i;
             }
         }
-        answer+=n;
-        return answer;
+        
+        return result += n;
     }
 }
