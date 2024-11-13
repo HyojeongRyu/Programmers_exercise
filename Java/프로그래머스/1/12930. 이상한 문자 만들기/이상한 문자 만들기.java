@@ -9,11 +9,7 @@ class Solution {
             answer.append(fromSpace == 0 || fromSpace % 2 == 0 ?
                             Character.toUpperCase(ch) :  Character.toLowerCase(ch));
             
-            fromSpace++;
-            
-            if(ch == ' '){
-                fromSpace = 0;
-            }
+            fromSpace = ch == ' ' ? 0: fromSpace + 1;
         }
             
         return answer.toString();
