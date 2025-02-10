@@ -8,8 +8,8 @@ class Solution {
             int score = 0;
             for(String person : photo[i]){
                 score += Arrays.asList(name).indexOf(person) >= 0 ?
-                    yearning[Arrays.asList(name).indexOf(person)]
-                    : 0;
+                         yearning[Arrays.asList(name).indexOf(person)]
+                         : 0;
             }
             answer[i] = score;
         }
